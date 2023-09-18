@@ -1,6 +1,7 @@
 import React from 'react';
 
-export function SearchBar() {
+export function SearchBar() 
+{
     return (
         <form>
             <input type="text" placeholder="Search for a song, artist, or album."></input>
