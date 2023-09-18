@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import { SearchBar } from './modules/searchBar';
+import { Playlist } from './modules/playlist';
 
 //Hardcodes for testing 
 let tracks = 
@@ -21,6 +22,7 @@ let tracks =
 function App() {
   return (
     <div className="App">
+      <Playlist playlistInfo={tracks}/>
       <SearchBar />
     </div>
   );

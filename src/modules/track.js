@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Track({trackInfo}) 
+export function Track({trackInfo}) 
 {
     return(
         <div key={trackInfo.id}>
