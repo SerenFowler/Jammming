@@ -5,7 +5,7 @@ import { SearchBar } from './modules/searchBar';
 import { Playlist } from './modules/playlist';
 
 //Hardcodes for testing 
-let tracks = 
+let testTracks = 
 [
   {title: "I see Fire", artist: "Ed Sheeran", album: "The Hobbit Soundtrack", genre: "Folk", id:1}, 
   {title: "Fearless", artist: "Taylor Swift", album: "Fearless", genre: "Country", id:2}, 
@@ -16,14 +16,24 @@ let tracks =
   {title: "", artist: "", album: "", genre: ""}
 ]
 
+let testPlaylist = 
+{
+  playlistName: "Nananana",
+  tracks: [
+    {title: "A case of you", artist: "Joni Mitchell", album: "Blue", genre: "Folk", id:4}, 
+    {title: "Home", artist: "Gabriel Aplin", album: "Home", genre: "folk", id:5}
+  ]
+}
+
 //State Declarations
+///const [playlist, setPlaylists] = useState([]);
 
 //App
 function App() 
 {
   return (
     <div className="App">
-      <Playlist playlistInfo={tracks}/>
+      <Playlist playlistInfo={testPlaylist}/>
       <SearchBar />
     </div>
   );

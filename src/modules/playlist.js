@@ -5,7 +5,8 @@ export function Playlist({playlistInfo})
 {
     return (
         <div  className='playlist'>
-            {playlistInfo.map((track) => <Track  trackInfo={track}/>)}
+            <h3>{playlistInfo.playlistName}</h3>
+            {playlistInfo.tracks.map((track) => <Track  trackInfo={track}/>)}
         </div>
     )
 }
