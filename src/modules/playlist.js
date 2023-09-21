@@ -4,7 +4,7 @@ import { Track } from './track';
 export function Playlist({playlistInfo})
 {
     return (
-        <div>
+        <div  className='playlist'>
             {playlistInfo.map((track) => <Track  trackInfo={track}/>)}
         </div>
     )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 import { SearchBar } from './modules/searchBar';
@@ -19,7 +19,8 @@ let tracks =
 //State Declarations
 
 //App
-function App() {
+function App() 
+{
   return (
     <div className="App">
       <Playlist playlistInfo={tracks}/>
