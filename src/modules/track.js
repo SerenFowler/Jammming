@@ -1,15 +1,15 @@
 import React from 'react';
 
-export function Track({trackInfo}) 
+export function Track(props) 
 {
     return(
-        <div className='track' key={trackInfo.id}>
+        <div className='track' key={props.trackInfo.id}>
             <div className='text'>
-                <h4>{trackInfo.title}</h4>
-                <p>{`${trackInfo.artist}, ${trackInfo.album}, ${trackInfo.genre}`}</p>
+                <h4>{props.trackInfo.title}</h4>
+                <p>{`${props.trackInfo.artist}, ${props.trackInfo.album}, ${props.trackInfo.genre}`}</p>
             </div>
             <div className='button'>
-                <p>Remove</p>
+                <p>{(props.isPlaylist === true) ? "Remove": "Add"}</p>
             </div>
         </div>
     )
