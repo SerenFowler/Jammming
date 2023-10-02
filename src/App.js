@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 
-import { SearchBar } from './modules/searchBar';
 import { Playlist } from './modules/playlist';
+import { SearchBar } from './modules/searchBar';
+import { SearchResults } from './modules/searchResults';
 
 //Hardcodes for testing 
 let testTracks = 
@@ -26,18 +27,19 @@ let testPlaylist =
 }
 
 //State Declarations
-///const [playlist, setPlaylists] = useState([]);
-
-let [playlists, setPlaylists] = useState([testPlaylist]);
-let [selectedPlaylist, setSelectedPlaylist] = useState(1);
 
 //App
 function App() 
 {
+
+  //State Declarations
+  let [playlists, setPlaylists] = useState([testPlaylist]);
+  let [selectedPlaylist, setSelectedPlaylist] = useState(0);
   return (
     <div className="App">
       <Playlist playlistInfo={playlists[selectedPlaylist]}/>
       <SearchBar />
+      <SearchResults searchReturns={testTracks}/>
     </div>
   );
 }
