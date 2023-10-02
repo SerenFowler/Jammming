@@ -28,12 +28,15 @@ let testPlaylist =
 //State Declarations
 ///const [playlist, setPlaylists] = useState([]);
 
+let [playlists, setPlaylists] = useState([testPlaylist]);
+let [selectedPlaylist, setSelectedPlaylist] = useState(1);
+
 //App
 function App() 
 {
   return (
     <div className="App">
-      <Playlist playlistInfo={testPlaylist}/>
+      <Playlist playlistInfo={playlists[selectedPlaylist]}/>
       <SearchBar />
     </div>
   );
