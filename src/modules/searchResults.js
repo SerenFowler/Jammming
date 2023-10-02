@@ -4,7 +4,7 @@ import { Track } from './track';
 export function SearchResults({searchReturns}) 
 {
     return (
-        <div>
+        <div className='searchResults'>
             {searchReturns.map((track) => <Track  trackInfo={track}/>)}
         </div>
     )

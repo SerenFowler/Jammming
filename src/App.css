@@ -6,13 +6,26 @@
 .playlist 
 {
   background-color: #6c2cff;
-  max-width: 350px;
+  max-width: 400px;
   border-radius: 5px;
   padding: 5px;
 }
 
 .playlist h3{
   color: aqua;
+}
+
+.searchBar
+{
+  width: 345px;
+}
+
+.searchResults
+{
+  background-color: #6c2cff;
+  max-width: 400px;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .track 
