@@ -31,10 +31,17 @@ let testPlaylist =
 //App
 function App() 
 {
-
   //State Declarations
   let [playlists, setPlaylists] = useState([testPlaylist]);
   let [selectedPlaylist, setSelectedPlaylist] = useState(0);
+
+  //Function Declarations
+  function addToPlaylist(e)
+  {
+    let track = e.target.trackInfo;
+    setPlaylists();
+  }
+
   return (
     <div className="App">
       <Playlist playlistInfo={playlists[selectedPlaylist]}/>
