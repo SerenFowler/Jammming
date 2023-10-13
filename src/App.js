@@ -26,8 +26,6 @@ let testPlaylist =
   ]
 }
 
-//State Declarations
-
 //App
 function App() 
 {
@@ -36,9 +34,15 @@ function App()
   let [selectedPlaylist, setSelectedPlaylist] = useState(0);
 
   //Function Declarations
-  function addToPlaylist(e)
+  function addToPlaylist(props, e)
   {
-    let track = e.target.trackInfo;
+    let clonePlaylist = playlists[selectedPlaylist];
+    let track = props.trackInfo;
+    clonePlaylist.push(track);
+    let clonePlaylistShell = playlists;
+    clonePlaylistShell.splice(selectedPlaylist, 1, clonePlaylist);
+
+
     setPlaylists();
   }
 
