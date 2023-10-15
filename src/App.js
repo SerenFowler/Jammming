@@ -34,6 +34,7 @@ function App()
   let [selectedPlaylist, setSelectedPlaylist] = useState(0);
 
   //Function Declarations
+  /* // old failed add to Playlist button
   function addToPlaylist(props, e)
   {
     let clonePlaylist = playlists[selectedPlaylist];
@@ -44,13 +45,13 @@ function App()
 
 
     setPlaylists();
-  }
+  }*/
 
   return (
     <div className="App">
-      <Playlist playlistInfo={playlists[selectedPlaylist]}/>
+      <Playlist playlistInfo={playlists[selectedPlaylist]} setPlaylists={setPlaylists} playlists={playlists} selectedPlaylist={selectedPlaylist}/>
       <SearchBar />
-      <SearchResults searchReturns={testTracks}/>
+      <SearchResults searchReturns={testTracks} setPlaylists={setPlaylists} playlists={playlists} selectedPlaylist={selectedPlaylist}/>
     </div>
   );
 }
