@@ -4,15 +4,17 @@ export function Track(props)
 {
     function addToPlaylist()
     {
-        let clonePlaylist = props.playlists[props.selectedPlaylist];
+        let clonePlaylist = structuredClone(props.playlists[props.selectedPlaylist]);
         clonePlaylist.tracks.push(props.trackInfo);
-        let clonePlaylistShell = props.playlists;
+        let clonePlaylistShell = [...props.playlists];
+        console.log(clonePlaylistShell);
+        //console.log(props.playlists)
         clonePlaylistShell.splice(props.selectedPlaylist, 1, clonePlaylist);
 
-        console.log(clonePlaylistShell);
-        console.log(props.playlists);
+        //console.log(clonePlaylistShell);
+        //console.log(props.playlists);
         props.setPlaylists(clonePlaylistShell);
-        console.log(props.playlists);
+        //console.log(props.playlists);
     }
 
     return(
