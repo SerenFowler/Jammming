@@ -5,7 +5,14 @@ export function Track(props)
     function addToPlaylist()
     {
         let clonePlaylist = props.playlists[props.selectedPlaylist];
-        console.log(clonePlaylist);
+        clonePlaylist.tracks.push(props.trackInfo);
+        let clonePlaylistShell = props.playlists;
+        clonePlaylistShell.splice(props.selectedPlaylist, 1, clonePlaylist);
+
+        console.log(clonePlaylistShell);
+        console.log(props.playlists);
+        props.setPlaylists(clonePlaylistShell);
+        console.log(props.playlists);
     }
 
     return(
