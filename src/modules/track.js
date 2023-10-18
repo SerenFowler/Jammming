@@ -18,17 +18,10 @@ export function Track(props)
         {
             const trackToRemoveIndex = props.playlists[props.selectedPlaylist].tracks.findIndex(track => track.id == props.trackInfo.id);
             clonePlaylist.tracks.splice(trackToRemoveIndex, 1);
-
         }
         let clonePlaylistShell = [...props.playlists];
-        //console.log(clonePlaylistShell);
-        //console.log(props.playlists)
         clonePlaylistShell.splice(props.selectedPlaylist, 1, clonePlaylist);
-
-        //console.log(clonePlaylistShell);
-        //console.log(props.playlists);
         props.setPlaylists(clonePlaylistShell);
-        //console.log(props.playlists);
     }
 
     return(
