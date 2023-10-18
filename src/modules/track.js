@@ -1,4 +1,5 @@
 import React from 'react';
+import {v4 as uuidv4} from 'uuid';
 
 export function Track(props) 
 {
@@ -7,7 +8,12 @@ export function Track(props)
         if(props.isPlaylist != true)
         {
             let clonePlaylist = structuredClone(props.playlists[props.selectedPlaylist]);
-            clonePlaylist.tracks.push(props.trackInfo);
+            clonePlaylist.tracks.push({
+                title: props.trackInfo.title, 
+                artist: props.trackInfo.artist, 
+                album: props.trackInfo.album, 
+                genre: props.trackInfo.genre, 
+                id: uuidv4()});
             let clonePlaylistShell = [...props.playlists];
             console.log(clonePlaylistShell);
             //console.log(props.playlists)
