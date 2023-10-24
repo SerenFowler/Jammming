@@ -11,8 +11,11 @@
   padding: 5px;
 }
 
-.playlist h3{
+.playlist input{
   color: aqua;
+  background: transparent;
+  border: none;
+  font-size: 30px;
 }
 
 .searchBar
