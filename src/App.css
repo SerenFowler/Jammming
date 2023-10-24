@@ -12,9 +12,10 @@
 }
 
 .playlist input{
-  color: aqua;
   background: transparent;
-  border: none;
+  border: none; 
+  color: aqua;
+  font-family: serif;
   font-size: 30px;
 }
 
