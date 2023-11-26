@@ -11,13 +11,13 @@ import { SearchResults } from './modules/searchResults';
 //Hardcodes for testing 
 let testTracks = 
 [
-  {title: "I see Fire", artist: "Ed Sheeran", album: "The Hobbit Soundtrack", genre: "Folk", id: uuidv4()}, 
-  {title: "Fearless", artist: "Taylor Swift", album: "Fearless", genre: "Country", id: uuidv4()}, 
-  {title: "Fast Car", artist: "Tracy Chapman", album: "Tracy Chapman", genre: "Folk Rock", id: uuidv4()}, 
-  {title: "A case of you", artist: "Joni Mitchell", album: "Blue", genre: "Folk", id: uuidv4()}, 
-  {title: "Home", artist: "Gabriel Aplin", album: "Home", genre: "folk", id: uuidv4()}, 
-  {title: "", artist: "", album: "", genre: "", id: uuidv4()}, 
-  {title: "", artist: "", album: "", genre: "", id: uuidv4()}
+  {title: "I see Fire", artist: "Ed Sheeran", album: "The Hobbit Soundtrack", genre: "Folk", id: uuidv4(, uri: ""}, 
+  {title: "Fearless", artist: "Taylor Swift", album: "Fearless", genre: "Country", id: uuidv4(), uri: ""}, 
+  {title: "Fast Car", artist: "Tracy Chapman", album: "Tracy Chapman", genre: "Folk Rock", id: uuidv4(), uri: ""}, 
+  {title: "A case of you", artist: "Joni Mitchell", album: "Blue", genre: "Folk", id: uuidv4(), uri: ""}, 
+  {title: "Home", artist: "Gabriel Aplin", album: "Home", genre: "folk", id: uuidv4(), uri: ""}, 
+  {title: "", artist: "", album: "", genre: "", id: uuidv4(), uri: ""}, 
+  {title: "", artist: "", album: "", genre: "", id: uuidv4(), uri: ""}
 ]
 
 let testPlaylist = 
@@ -25,8 +25,8 @@ let testPlaylist =
   id: uuidv4(),
   playlistName: "Nananana",
   tracks: [
-    {title: "A case of you", artist: "Joni Mitchell", album: "Blue", genre: "Folk", id: uuidv4()}, 
-    {title: "Home", artist: "Gabriel Aplin", album: "Home", genre: "folk", id: uuidv4()}
+    {title: "A case of you", artist: "Joni Mitchell", album: "Blue", genre: "Folk", id: uuidv4(), uri: ""}, 
+    {title: "Home", artist: "Gabriel Aplin", album: "Home", genre: "folk", id: uuidv4(), uri: ""}
   ]
 }
 
