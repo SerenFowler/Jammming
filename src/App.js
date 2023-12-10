@@ -25,8 +25,8 @@ let testPlaylist =
   id: uuidv4(),
   playlistName: "Nananana",
   tracks: [
-    {title: "A case of you", artist: "Joni Mitchell", album: "Blue", genre: "Folk", id: uuidv4(), uri: ""}, 
-    {title: "Home", artist: "Gabriel Aplin", album: "Home", genre: "folk", id: uuidv4(), uri: ""}
+    {title: "A case of you", artist: "Joni Mitchell", album: "Blue", genre: "Folk", id: uuidv4(), uri: "spotify:track:1YOWFIWuYJFX62Ufuh1KlN"}, 
+    {title: "Home", artist: "Gabriel Aplin", album: "Home", genre: "folk", id: uuidv4(), uri: "spotify:track:0OwoAzOM3ULaLoiYpC5axn"}
   ]
 }
 
