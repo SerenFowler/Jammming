@@ -11,7 +11,7 @@ import { SearchResults } from './modules/searchResults';
 //Hardcodes for testing 
 let testTracks = 
 [
-  {title: "I see Fire", artist: "Ed Sheeran", album: "The Hobbit Soundtrack", genre: "Folk", id: uuidv4(, uri: ""}, 
+  {title: "I see Fire", artist: "Ed Sheeran", album: "The Hobbit Soundtrack", genre: "Folk", id: uuidv4(), uri: ""}, 
   {title: "Fearless", artist: "Taylor Swift", album: "Fearless", genre: "Country", id: uuidv4(), uri: ""}, 
   {title: "Fast Car", artist: "Tracy Chapman", album: "Tracy Chapman", genre: "Folk Rock", id: uuidv4(), uri: ""}, 
   {title: "A case of you", artist: "Joni Mitchell", album: "Blue", genre: "Folk", id: uuidv4(), uri: ""}, 
