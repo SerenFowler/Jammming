@@ -6,7 +6,9 @@ import { Playlist } from './modules/playlist';
 import { SearchBar } from './modules/searchBar';
 import { SearchResults } from './modules/searchResults';
 
-//Generate unique ID's for playlista and tracks
+//Get API key from spotify
+const clientId = '66d9d5b9c29b4215bfd7adc0f269236c';
+const clientSecret = 'f0ac6e1b071d4ac286745020e2d8b4b4';
 
 //Hardcodes for testing 
 let testTracks = 
