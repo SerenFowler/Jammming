@@ -12,22 +12,35 @@ const clientSecret = 'f0ac6e1b071d4ac286745020e2d8b4b4';
 
 const _getAPIKey = async () => 
 {
-  const result = await fetch('https://accounts.spotify.com/api/token', 
+  try
   {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Basic ' + btoa(`${clientId}:${clientSecret}`)
-    },
-    body: 'grant_type=client_credentials'
-  });
+    const response = await fetch('https://accounts.spotify.com/api/token', 
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + btoa(`${clientId}:${clientSecret}`)
+      },
+      body: 'grant_type=client_credentials'
+    });
+    if(response.ok)
+    {
+      const jsonResponse = await response.json();
+      const token = await jsonResponse.access_token;
+      return token;
+    }
+    throw new Error('Request Failed!');
+  }
+  catch(error) 
+  {
+    console.log(error);
+  }
 
-  const data = await result.json();
-  return data.access_token
+
 }
 
-const APIKey = _getAPIKey();
-console.log(APIKey);
+_getAPIKey().then(APIKey => console.log(APIKey))
+
 
 //Hardcodes for testing 
 let testTracks = 
