@@ -10,6 +10,25 @@ import { SearchResults } from './modules/searchResults';
 const clientId = '66d9d5b9c29b4215bfd7adc0f269236c';
 const clientSecret = 'f0ac6e1b071d4ac286745020e2d8b4b4';
 
+const _getAPIKey = async () => 
+{
+  const result = await fetch('https://accounts.spotify.com/api/token', 
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + btoa(`${clientId}:${clientSecret}`)
+    },
+    body: 'grant_type=client_credentials'
+  });
+
+  const data = await result.json();
+  return data.access_token
+}
+
+const APIKey = _getAPIKey();
+console.log(APIKey);
+
 //Hardcodes for testing 
 let testTracks = 
 [
