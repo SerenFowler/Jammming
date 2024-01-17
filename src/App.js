@@ -10,7 +10,7 @@ import { SearchResults } from './modules/searchResults';
 const clientId = '66d9d5b9c29b4215bfd7adc0f269236c';
 const clientSecret = 'f0ac6e1b071d4ac286745020e2d8b4b4';
 
-const _getAPIKey = async () => 
+const getAPIKey = async () => 
 {
   try
   {
@@ -39,8 +39,44 @@ const _getAPIKey = async () =>
 
 }
 
-_getAPIKey().then(APIKey => console.log(APIKey))
+//getAPIKey().then(APIKey => console.log(APIKey))
 
+const createPlaylist = async (Key) => 
+{
+  try
+  {
+    const response = await fetch('https://api.spotify.com/v1/users/31unsoolebywaboz52u5bf7zn7r4/playlists',
+    {
+      method: 'POST',
+      headers:
+      {
+        'Authorization': 'Bearer ' + Key,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: 'New Playlist',
+        description: 'New playlist description',
+        public: false
+      })
+    });
+    if (response.ok) {
+      const playlistData = await response.json();
+      console.log('Playlist created:', playlistData);
+    } else {
+      console.error('Failed to create playlist:', response.status, response.statusText);
+      throw new Error('Playlist creation failed!')
+    }
+  }
+  catch(error)
+  {
+    console.log(error);
+  }
+}
+
+getAPIKey().then(APIKey => 
+  {
+    createPlaylist(APIKey);
+  });
 
 //Hardcodes for testing 
 let testTracks = 
@@ -63,8 +99,6 @@ let testPlaylist =
     {title: "Home", artist: "Gabriel Aplin", album: "Home", genre: "folk", id: uuidv4(), uri: "spotify:track:0OwoAzOM3ULaLoiYpC5axn"}
   ]
 }
-
-
 
 //App
 function App() 
