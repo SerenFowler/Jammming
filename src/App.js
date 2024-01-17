@@ -29,19 +29,18 @@ const getAPIKey = async () =>
       const token = await jsonResponse.access_token;
       return token;
     }
-    throw new Error('Request Failed!');
+    throw new Error('Request for access token failed!');
   }
   catch(error) 
   {
-    console.log(error);
+    console.error(error);
+    throw error;
   }
-
-
 }
 
 //getAPIKey().then(APIKey => console.log(APIKey))
 
-const createPlaylist = async (Key) => 
+const postPlaylist = async (Key) => 
 {
   try
   {
@@ -69,14 +68,23 @@ const createPlaylist = async (Key) =>
   }
   catch(error)
   {
-    console.log(error);
+    console.error(error);
+    throw error;
   }
 }
 
-getAPIKey().then(APIKey => 
+const createPlaylist = async () => 
+{
+  try
   {
-    createPlaylist(APIKey);
-  });
+    const acessToken = await getAPIKey();
+    await createPlaylist(acessToken);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+createPlaylist();
 
 //Hardcodes for testing 
 let testTracks = 
