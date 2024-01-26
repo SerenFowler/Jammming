@@ -27,6 +27,7 @@ const getAPIKey = async () =>
     {
       const jsonResponse = await response.json();
       const token = await jsonResponse.access_token;
+      console.log(token);
       return token;
     }
     throw new Error('Request for access token failed!');
@@ -77,14 +78,30 @@ const createPlaylist = async () =>
 {
   try
   {
-    const acessToken = await getAPIKey();
-    await createPlaylist(acessToken);
+    const accessToken = await getAPIKey();
+    await postPlaylist(accessToken);
   } catch (error) {
     console.error(error);
   }
 }
 
-createPlaylist();
+//createPlaylist();
+
+const getArtistData = async () => 
+  {
+    const accessToken = await getAPIKey();
+    fetch('https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+  }
+
+  getArtistData()
 
 //Hardcodes for testing 
 let testTracks = 
