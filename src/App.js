@@ -63,8 +63,16 @@ const postPlaylist = async (Key) =>
       const playlistData = await response.json();
       console.log('Playlist created:', playlistData);
     } else {
+      if(response.status === 403)
+      {
+        {
+          return response.json().then(errorData => {
+            console.error('403 Forbidden:', errorData);
+            throw new Error('Forbidden: ' + errorData.message);
+          });
+        }
+      }
       console.error('Failed to create playlist:', response.status, response.statusText);
-      console.log(response);
       throw new Error('Playlist creation failed!');
     }
   }
