@@ -64,7 +64,8 @@ const postPlaylist = async (Key) =>
       console.log('Playlist created:', playlistData);
     } else {
       console.error('Failed to create playlist:', response.status, response.statusText);
-      throw new Error('Playlist creation failed!')
+      console.log(response);
+      throw new Error('Playlist creation failed!');
     }
   }
   catch(error)
@@ -85,8 +86,9 @@ const createPlaylist = async () =>
   }
 }
 
-//createPlaylist();
+createPlaylist();
 
+/*
 const getArtistData = async () => 
   {
     const accessToken = await getAPIKey();
@@ -102,6 +104,7 @@ const getArtistData = async () =>
   }
 
   getArtistData()
+  */
 
 //Hardcodes for testing 
 let testTracks = 
