@@ -94,7 +94,7 @@ const createPlaylist = async () =>
   }
 }
 
-createPlaylist();
+//createPlaylist();
 
 /*
 const getArtistData = async () => 
@@ -113,6 +113,38 @@ const getArtistData = async () =>
 
   getArtistData()
   */
+
+  //////////
+
+  // Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization
+const token = 'BQDRVdnPSzEOsZgjcrFHu9g9HDXK_dlUk1COF0bm6P4Q0ODqY1oQrR8OcOdR68Jn2pHIvgTJJ9FC6mGsvrl_LT96cCuuYXIvuXV3cJCNqK6fZxyBBmxjlJyyjjJ8E1qwiaQKq2TK_v9T3cAAO9sXr36DQ04BKJoY4-5QxniJWt_4rqCcx9BVzjiQUzlUoK6iuxXphigs6250A49FnzCA9K1Xu96y-p4zz7PwS0IS-a_DdBxneWKyFQ-c0bIEy73Vo59lL7Qkw9l9hpkDKoMGc-hN';
+async function fetchWebApi(endpoint, method, body) {
+  const res = await fetch(`https://api.spotify.com/${endpoint}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method,
+    body:JSON.stringify(body)
+  });
+  return await res.json();
+}
+
+async function getTopTracks(){
+  // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
+  return (await fetchWebApi(
+    'v1/me/top/tracks?time_range=long_term&limit=5', 'GET'
+  )).items;
+}
+
+const topTracks = await getTopTracks();
+console.log(
+  topTracks?.map(
+    ({name, artists}) =>
+      `${name} by ${artists.map(artist => artist.name).join(', ')}`
+  )
+);
+
+/////////
 
 //Hardcodes for testing 
 let testTracks = 
