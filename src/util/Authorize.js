@@ -30,6 +30,44 @@ const getAPIKey = async () =>
   }
 }
 
+const generateRandomString = (length) => 
+{
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const values = crypto.getRandomValues(new Uint8Array(length));
+}
+
+const sha256 = async (plain) => {}
+
+const base64encode = (input) => {}
+
+const getToken = async (code) => {}
+
+const redirectUri = 'http://localhost:8080';
+const scope = 'user-read-private user-read-email';
+const authUrl = new URL("https://accounts.spotify.com/authorize");
+
+const codeVerifier = generateRandomString(64);
+const hashed = await sha256(codeVerifier);
+const codeChallenge = base64encode(hashed);
+
+const params = 
+{
+    response_type: 'code',
+    client_id: clientId,
+    scope,
+    code_challenge_method: 'S256',
+    code_challenge: codeChallenge,
+    redirect_uri: redirectUri,
+}
+
+authUrl.search = new URLSearchParams(params).toString();
+window.location.href = authUrl.toString();
+
+const urlParams = new URLSearchParams(window.location.search);
+let code = urlParams.get('code');
+
+(async () => {await getToken(code);})();
+
 
 const postPlaylist = async (Key) => 
 {
