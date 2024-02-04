@@ -46,7 +46,13 @@ const sha256 = async (plain) =>
     return window.crypto.subtle.digest('SHA-256', data);
 }
 
-const base64encode = (input) => {}
+const base64encode = (input) => 
+{
+    return btoa(String.fromCharCode(...new Uint8Array(input)))
+        .replace(/=/g, '')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_');
+}
 
 const getToken = async (code) => {}
 
