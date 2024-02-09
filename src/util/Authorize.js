@@ -32,6 +32,7 @@ const getAPIKey = async () =>
   }
 }
 
+
 const generateRandomString = (length) => 
 {
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -54,7 +55,27 @@ const base64encode = (input) =>
         .replace(/\//g, '_');
 }
 
-const getToken = async (code) => {}
+const getToken = async (code) => 
+{
+    let codeVerifier = localStorage.getItem('code_verifier');
+
+    const payload = 
+    {
+        method: 'POST',
+        headers: 
+        {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams
+        ({
+            client_id: clientId,
+            grant_type: 'authorization_code',
+            code,
+            redirect_uri: redirectUri,
+            code_verifier: codeVerifier,
+        }),
+    }
+}
 
 const redirectUri = 'http://localhost:8080';
 const scope = 'user-read-private user-read-email';
